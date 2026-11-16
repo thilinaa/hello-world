@@ -31,10 +31,11 @@ third-party requests. Deployed on Vercel with the same security headers as `pick
 
 ## Keeping it current
 
-- **Your photo:** save a square photo (at least 300×300) as `assets/me.jpg`, then in `index.html`
+- **Your photo:** save a square photo (at least 480×480, it shows at 160px) as `assets/me.jpg`, then in `index.html`
   change `src="/assets/me.svg"` to `src="/assets/me.jpg"`. `me.svg` is only a placeholder.
 - **About:** the paragraph under "About" in `index.html` is a draft. Rewrite it in your own words.
-- **Social links:** add or remove `<a>` tags in `<nav class="social">`.
+- **Social links:** add or remove `<a>` tags in `<nav class="social">`. LinkedIn and Instagram are
+  there but commented out: put in the profile URL and remove the `<!--` and `-->` around each.
 - **A product ships:** swap its `<span class="tag">` (or "Store link soon") for its store links, and
   move its `<li>` above the ones still building.
 - **New icon:** export at 128×128 WebP into `assets/icons/`. Use `class="icon app"` for iOS

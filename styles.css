@@ -61,27 +61,28 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; border-r
 .intro {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
-  gap: 20px 22px;
+  gap: 24px 32px;
   align-items: center;
 }
 .me {
   display: block;
-  width: 88px;
-  height: 88px;
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 0 0 1px var(--icon-edge);
+  box-shadow: 0 0 0 1px var(--icon-edge), 0 18px 40px -20px rgba(0, 0, 0, .35);
 }
+.who { min-width: 0; }
 .intro h1 {
   margin: 0;
-  font-size: 26px;
+  font-size: 30px;
   line-height: 1.15;
   font-weight: 650;
   letter-spacing: -.015em;
 }
 .role { margin: 4px 0 0; color: var(--muted); }
 .social {
-  grid-column: 1 / -1;
+  margin-top: 16px;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
@@ -166,8 +167,9 @@ footer p { margin: 0; }
 @media (max-width: 520px) {
   main { padding-top: 56px; }
   section { margin-top: 52px; }
-  .me { width: 72px; height: 72px; }
-  .intro h1 { font-size: 23px; }
+  .intro { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .me { width: 128px; height: 128px; }
+  .intro h1 { font-size: 26px; }
   .work li { grid-template-columns: 40px minmax(0, 1fr); }
   .icon { width: 40px; height: 40px; }
   .what h3 span { display: block; margin-left: 0; }
