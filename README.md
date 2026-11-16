@@ -10,7 +10,6 @@ third-party requests. Deployed on Vercel with the same security headers as `pick
 | `styles.css` | All styles. Light and dark follow the system setting. |
 | `404.html` | Not-found page (Vercel serves it automatically). |
 | `vercel.json` | Clean URLs plus a strict CSP: only same-origin styles and images, no scripts. |
-| `assets/icons/nocturne.svg` | Placeholder icon until the real Nocturne preview is added. |
 | `assets/me.svg` | Photo placeholder until `assets/me.jpg` exists. |
 | `assets/icons/` | Product icons, 128 px WebP (shown at 56 px, so sharp on 2x screens) or SVG. |
 | `og.png` | 1200×630 link preview. |
