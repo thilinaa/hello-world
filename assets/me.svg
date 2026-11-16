@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 176 176" width="176" height="176">
+  <!-- Placeholder until a real photo goes in. See README: replace with assets/me.jpg. -->
+  <rect width="176" height="176" fill="#2B3A33"/>
+  <circle cx="88" cy="70" r="30" fill="#5E7A6B"/>
+  <path d="M28 176c4-38 30-60 60-60s56 22 60 60z" fill="#5E7A6B"/>
+</svg>

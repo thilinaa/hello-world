@@ -1,30 +1,26 @@
 :root {
-  --bg: #F7F6F3;
-  --text: #1A1918;
-  --muted: #6F6B65;
-  --faint: #A29E97;
-  --rule: #E4E1DB;
-  --link: #1A1918;
-  --link-rule: #C9C5BD;
-  --live: #2F8A4E;
-  --review: #B7791F;
-  --building: #8A867F;
+  --bg: #F6F5F2;
+  --text: #191918;
+  --muted: #64625D;
+  --faint: #9D9A93;
+  --rule: #E3E1DB;
+  --chip: #ECEAE5;
+  --chip-hover: #E2DFD8;
+  --link-rule: #C7C3BA;
   --icon-edge: rgba(0, 0, 0, .08);
   color-scheme: light dark;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #111110;
-    --text: #EDEBE7;
-    --muted: #9C988F;
-    --faint: #6C6862;
+    --bg: #121211;
+    --text: #EDEBE6;
+    --muted: #A19E97;
+    --faint: #6E6B65;
     --rule: #262523;
-    --link: #EDEBE7;
+    --chip: #1E1E1C;
+    --chip-hover: #282725;
     --link-rule: #4A4743;
-    --live: #5CC07E;
-    --review: #E0A33F;
-    --building: #8A867F;
     --icon-edge: rgba(255, 255, 255, .08);
   }
 }
@@ -37,55 +33,76 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font: 16px/1.55 ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font: 16px/1.6 ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
 main, footer {
-  max-width: 640px;
+  max-width: 600px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
 }
 
-main { padding-top: 96px; }
+main { padding-top: 88px; }
 
 a {
-  color: var(--link);
+  color: var(--text);
   text-decoration: underline;
   text-decoration-color: var(--link-rule);
   text-underline-offset: 3px;
   text-decoration-thickness: 1px;
 }
 a:hover { text-decoration-color: currentColor; }
-a:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; border-radius: 2px; }
+a:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; border-radius: 3px; }
 
-/* Intro */
+/* Who I am */
 
+.intro {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 20px 22px;
+  align-items: center;
+}
+.me {
+  display: block;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 0 1px var(--icon-edge);
+}
 .intro h1 {
-  margin: 0 0 12px;
-  font-size: 22px;
-  font-weight: 600;
-  letter-spacing: -.01em;
-}
-.intro p {
   margin: 0;
-  color: var(--muted);
-  font-size: 17px;
-  max-width: 34em;
+  font-size: 26px;
+  line-height: 1.15;
+  font-weight: 650;
+  letter-spacing: -.015em;
 }
-.elsewhere {
+.role { margin: 4px 0 0; color: var(--muted); }
+.social {
+  grid-column: 1 / -1;
   display: flex;
-  gap: 20px;
-  margin-top: 20px;
-  font-size: 15px;
+  flex-wrap: wrap;
+  gap: 8px;
 }
+.social a {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 7px 13px;
+  border-radius: 999px;
+  background: var(--chip);
+}
+.social a:hover { background: var(--chip-hover); }
+.social a::after { content: " ↗"; color: var(--faint); }
 
 /* Sections */
 
-section { margin-top: 72px; }
+section { margin-top: 64px; }
 
 h2 {
-  margin: 0 0 4px;
+  margin: 0 0 8px;
   font-size: 13px;
   font-weight: 500;
   letter-spacing: .06em;
@@ -93,97 +110,66 @@ h2 {
   color: var(--faint);
 }
 
-.items { list-style: none; margin: 0; padding: 0; }
+.about p { margin: 0; font-size: 17px; color: var(--muted); }
 
-.item {
+/* Work */
+
+.work { list-style: none; margin: 0; padding: 0; }
+.work li {
   display: grid;
-  grid-template-columns: 56px 1fr;
-  gap: 18px;
+  grid-template-columns: 44px minmax(0, 1fr) auto;
+  gap: 4px 16px;
   align-items: start;
-  padding: 20px 0;
+  padding: 18px 0;
   border-bottom: 1px solid var(--rule);
 }
-.item:last-child { border-bottom: 0; }
+.work li:last-child { border-bottom: 0; }
 
-.icon {
-  display: block;
-  width: 56px;
-  height: 56px;
-}
+.icon { display: block; width: 44px; height: 44px; }
 .icon.app { border-radius: 22.5%; box-shadow: 0 0 0 1px var(--icon-edge); }
 .icon.round { border-radius: 50%; box-shadow: 0 0 0 1px var(--icon-edge); }
 
-.body { min-width: 0; }
+.what { min-width: 0; }
+.what h3 { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.4; }
+.what h3 span { margin-left: 6px; font-size: 13.5px; font-weight: 400; color: var(--faint); }
+.what p { margin: 2px 0 0; font-size: 15px; color: var(--muted); }
 
-.head {
+.go {
+  margin: 1px 0 0;
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 16px;
-}
-
-h3 {
-  margin: 1px 0 2px;
-  font-size: 16px;
-  font-weight: 600;
-}
-.kind {
-  margin-left: 6px;
-  font-weight: 400;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
   font-size: 14px;
-  color: var(--faint);
-}
-
-.body p { margin: 0; color: var(--muted); font-size: 15px; }
-
-.body .links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px 16px;
-  margin-top: 8px;
-  font-size: 14px;
-}
-.body .links a::after { content: " ↗"; color: var(--faint); }
-
-/* Status */
-
-.status {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  flex-shrink: 0;
-  font-size: 13px;
   white-space: nowrap;
+}
+.go a::after { content: " ↗"; color: var(--faint); }
+.go .tag {
+  font-size: 12.5px;
   color: var(--muted);
+  background: var(--chip);
+  padding: 2px 9px;
+  border-radius: 999px;
 }
-.status::before {
-  content: "";
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: currentColor;
-}
-.status.live::before { background: var(--live); }
-.status.review::before { background: var(--review); }
-.status.building::before { background: var(--building); }
-.status.soon::before { background: transparent; box-shadow: inset 0 0 0 1.5px var(--building); }
-
-/* Footer */
+.go .later { font-size: 13px; color: var(--faint); }
 
 footer {
-  margin-top: 80px;
-  padding-bottom: 64px;
+  margin-top: 72px;
+  padding-bottom: 56px;
   font-size: 13px;
   color: var(--faint);
 }
 footer p { margin: 0; }
 
-/* Narrow screens: smaller icons, and the kind drops under the name. */
+/* Narrow screens: links move under the description. */
 
 @media (max-width: 520px) {
   main { padding-top: 56px; }
-  section { margin-top: 56px; }
-  .item { grid-template-columns: 48px 1fr; gap: 16px; }
-  .icon { width: 48px; height: 48px; }
-  .kind { display: block; margin-left: 0; }
+  section { margin-top: 52px; }
+  .me { width: 72px; height: 72px; }
+  .intro h1 { font-size: 23px; }
+  .work li { grid-template-columns: 40px minmax(0, 1fr); }
+  .icon { width: 40px; height: 40px; }
+  .what h3 span { display: block; margin-left: 0; }
+  .go { grid-column: 2; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 4px 16px; margin-top: 8px; }
 }
